@@ -3,7 +3,7 @@ var table2 = document.getElementById('table2');
 var table3 = document.getElementById('table3');
 const sub = document.querySelector('#submit');
 
-sub.addEventListener('click', (e) => {
+    sub.addEventListener ('click', async(e) => {
     e.preventDefault();
     var price = document.getElementById('price');
     var dish = document.getElementById('dish');
@@ -14,23 +14,30 @@ sub.addEventListener('click', (e) => {
         'table': table.value
     }
     //post on crud
-    axios.post("https://crudcrud.com/api/c9bfa308ebcb4368be7447da233a673b/restroBill", obj)
-        .then(res => {
-            displayOnScreen(res.data);
-        })
-        .catch(err => {
-            console.log(err)
-        })
+    try{
+        const response = await axios.post("https://crudcrud.com/api/a37aceb749224e1e9b9efdef92c98a73/restroBill", obj)
+        
+            displayOnScreen(response.data);
+            console.log(response)
+        
+    }   catch(error)
+        {
+            console.log(error)
+        }
 
 })
     //on load functionality
-window.addEventListener('DOMContentLoaded', () => {
-    axios.get("https://crudcrud.com/api/c9bfa308ebcb4368be7447da233a673b/restroBill").then((response) => {
+window.addEventListener('DOMContentLoaded', async () => 
+{
+    try{
+        const response=await axios.get("https://crudcrud.com/api/a37aceb749224e1e9b9efdef92c98a73/restroBill")
         for (var i = 0; i < response.data.length; i++) {
             displayOnScreen(response.data[i]);
-
         }
-    }).catch(err => { console.log(err) })
+    }
+    catch(error){
+        console.log(error)
+    }
 })
 
 function displayOnScreen(res) {
@@ -42,7 +49,7 @@ function displayOnScreen(res) {
     var del = document.createElement('button');
     del.setAttribute('class', 'btn btn-danger mt-2 float-right');
     del.innerText = 'Delete';
-    //append button in li
+    //appening li
     li.appendChild(del);
     if (res.table == 'Table 1') {
         table1.appendChild(li);
@@ -54,7 +61,7 @@ function displayOnScreen(res) {
         table3.appendChild(li);
     }
     //delete functionality
-    del.addEventListener('click', (e) => {
+    del.addEventListener('click', async(e) => {
         e.preventDefault();
         if (res.table == 'Table 1') {
             table1.removeChild(li);
@@ -65,6 +72,6 @@ function displayOnScreen(res) {
         else {
             table3.removeChild(li);
         }
-        axios.delete(`https://crudcrud.com/api/c9bfa308ebcb4368be7447da233a673b/restroBill/${res._id}`);
+        const response = await axios.delete(`https://crudcrud.com/api/a37aceb749224e1e9b9efdef92c98a73/restroBill/${res._id}`);
     })
 }

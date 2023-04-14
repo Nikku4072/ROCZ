@@ -6,42 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;1,300&display=swap"
-        rel="stylesheet">
-    <title>Restaurant Website</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <title>Restro service</title>
 </head>
 
 <body>
+    <div class="center">
     <div class="heading">
         <h1>BABA KA DHABA</h1>
     </div>
     <div class="main">
         <form class="card" id="menu">
             <div class="price">
-                <span id="reveal">Menu</span>
-                <div>
-                    <ul class="allPrices">
-                        <li>CHICKEN CURRY 250/-</li>
-                        <li>VEG BIRYANI 100/-</li>
-                        <li>TANDOORI 50/-</li>
-                        <li>BURGER 200/-</li>
-                    </ul>
-                </div>
+                <label for="price">Enter Price</label>
+                <input type="text" class="inputs" id="price">
             </div>
             <div class="dishes">
                 <label for="dish">Choose a dish</label>
                 <select name="dish" class="inputs" id="dish">
-                    <option value="CHICKEN CURRY">CHICKEN CURRY</option>
-                    <option value="VEG BIRYANI">VEG BIRYANI</option>
-                    <option value="TANDOORI">TANDOORI</option>
-                    <option value="BURGER">BURGER</option>
+                    <option value="CHOWMEIN">CHOWMEIN</option>
+                    <option value="VEG NOODLES">VEG NOODLES</option>
+                    <option value="FRIED RICE">FRIED RICE</option>
+                    <option value="LASSI">LASSI</option>
                 </select>
             </div>
             <div class="tables">
                 <label for="table">Select a table</label>
                 <select name="table" class="inputs" id="table">
-                    <option value="Table 1">Table 1</option>
+                    <option  value="Table 1">Table 1</option>
                     <option value="Table 2">Table 2</option>
                     <option value="Table 3">Table 3</option>
                 </select>
@@ -49,28 +42,27 @@
             <div><button id="submit">Add to Bill</button></div>
         </form>
     </div>
+    
+
     <div class="display">
         <div class="table1 card">
-            <h4>Total Bill:</h4>
-            <h4 id="total1"></h4>
+            
             <ul id="table1">
                 <h3>Table 1</h3>
             </ul>
+            
         </div>
         <div class="table2 card">
-            <h4>Total Bill:</h4>
-            <h4 id="total2"></h4>
             <ul id="table2">
                 <h3>Table 2</h3>
             </ul>
         </div>
         <div class="table3 card">
-            <h4>Total Bill:</h4>
-            <h4 id="total3"></h4>
             <ul id="table3">
                 <h3>Table 3</h3>
             </ul>
         </div>
+    </div>
     </div>
 
     <script src="restro1.js"></script>

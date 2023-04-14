@@ -1,0 +1,10 @@
+body{
+    background-color: pink;
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+    border: 3px solid,white;
+    padding: 50px;
+}
